@@ -1,9 +1,40 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router';
+import Landing from './Landing';
+import Quote from './Quote';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  shallow(<App />);
+});
+
+describe('Routing', () => {
+  it('should render Landing component on "/" route', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    )
+    expect(wrapper.containsMatchingElement(<Landing />)).toBe(true);
+  })
+
+  it('should render Quote component on "/quote" route', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/quote']}>
+        <App />
+      </MemoryRouter>
+    )
+    expect(wrapper.containsMatchingElement(<Quote />)).toBe(true);
+  })
+
+  it('should render Landing component on undeclared route', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/undeclaredroute']}>
+        <App />
+      </MemoryRouter>
+    )
+    expect(wrapper.containsMatchingElement(<Landing />)).toBe(true);
+  })
+
 });
