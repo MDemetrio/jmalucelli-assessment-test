@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from "styled-components";
 import lineChart from '../assets/line-chart.svg';
 import { Button } from '../components';
@@ -44,18 +44,20 @@ const H2 = styled.h2`
   margin: 0px;
 `;
 
-export default class Landing extends Component {
-  render() {
-    return (
-      <Container>
-        <SineWave />
-        <Content>
-          <LineChartIcon src={lineChart} alt="line-chart" />
-          <H1>Cotação de seguros</H1>
-          <H2>Solução inovadora da líder de mercado</H2>
-          <Button>Iniciar</Button>
-        </Content>
-      </Container>
-    )
-  }
+const Landing = (props) => {
+  return (
+    <Container style={props.style}>
+      <SineWave />
+      <Content>
+        <LineChartIcon src={lineChart} alt="line-chart" />
+        <H1>Cotação de seguros</H1>
+        <H2>Solução inovadora da líder de mercado</H2>
+        <Button onClick={(e) => { e.preventDefault(); props.history.push('/quote') }}>
+          Iniciar
+          </Button>
+      </Content>
+    </Container>
+  )
 }
+
+export default Landing;
