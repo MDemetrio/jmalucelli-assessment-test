@@ -55,9 +55,12 @@ export default class SineWave extends Component {
     }
 
     createLines = () => {
+        const currentSvg = this.svgRef.current;
+        const currentDiv = this.divRef.current;
+
         //remove lines in case the window is resized, so they can be created again based on new size
-        while (this.svgRef.current.firstChild) {
-            this.svgRef.current.removeChild(this.svgRef.current.firstChild);
+        while (this.svgRef && currentSvg && currentSvg.firstChild) {
+            currentSvg.removeChild(currentSvg.firstChild);
         }
 
         const lineDataArr = [];
@@ -69,8 +72,8 @@ export default class SineWave extends Component {
         let newPathEl2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         let newPathEl3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-        const currentWidth = this.divRef.current.clientWidth || 0;
-        const currentHeigth = this.divRef.current.clientHeight || 0;
+        const currentWidth = (currentDiv && currentDiv.clientWidth) || 0;
+        const currentHeigth = (currentDiv && currentDiv.clientHeight) || 0;
 
         // create an arr which contains objects for all lines
         // createPathString() will use this array
@@ -117,9 +120,9 @@ export default class SineWave extends Component {
         newPathEl3.setAttribute("style", "transition: opacity .90s ease-in-out; - moz - transition: opacity .90s ease -in -out; -webkit - transition: opacity .90s ease -in -out; ");
 
 
-        this.svgRef.current.appendChild(newPathEl1);
-        this.svgRef.current.appendChild(newPathEl2);
-        this.svgRef.current.appendChild(newPathEl3);
+        currentSvg && currentSvg.appendChild(newPathEl1);
+        currentSvg && currentSvg.appendChild(newPathEl2);
+        currentSvg && currentSvg.appendChild(newPathEl3);
 
         //set opacity after appending, so it don't glitch visually in case of resize
         setTimeout(() => {
@@ -130,7 +133,6 @@ export default class SineWave extends Component {
 
         // once the path elements are created, start the animation loop
         animLoop();
-
     };
 
     componentDidMount = () => {
@@ -141,6 +143,8 @@ export default class SineWave extends Component {
     componentWillUnmount = () => {
         window.removeEventListener("resize", this.updateDimensions);
     }
+
+
 
     render() {
         return (
