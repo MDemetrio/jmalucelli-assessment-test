@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 import lineChart from '../assets/line-chart.svg';
 import { Button } from '../components';
 import SineWave from '../components/SineWave';
+import arrowFoward from '../assets/arrow-foward.svg';
 
 const Container = styled.main`
   background-image: linear-gradient(#8386f0, #a36cf4);
@@ -44,20 +46,26 @@ const H2 = styled.h2`
   margin: 0px;
 `;
 
-const Landing = (props) => {
-  return (
-    <Container style={props.style}>
-      <SineWave />
-      <Content>
-        <LineChartIcon src={lineChart} alt="line-chart" />
-        <H1>Cotação de seguros</H1>
-        <H2>Solução inovadora da líder de mercado</H2>
-        <Button onClick={(e) => { e.preventDefault(); props.history.push('/quote') }}>
-          Iniciar
-          </Button>
-      </Content>
-    </Container>
-  )
+
+const Landing = (props) => (
+  <Container style={props.style}>
+    <SineWave />
+    <Content>
+      <LineChartIcon src={lineChart} alt="line-chart-icon" aria-hidden={true} />
+      <H1>Cotação de seguros</H1>
+      <H2>Solução inovadora da líder de mercado</H2>
+      <Button icon={arrowFoward} onClick={(e) => {
+        e.preventDefault();
+        props.history.push({ pathname: '/quote' })
+      }}>
+        Iniciar
+        </Button>
+    </Content>
+  </Container>
+);
+
+Landing.propTypes = {
+  history: PropTypes.object.isRequired,
 }
 
 export default Landing;

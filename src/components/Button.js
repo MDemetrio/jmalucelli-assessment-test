@@ -1,7 +1,22 @@
-import styled from "styled-components";
-import arrowFoward from '../assets/arrow-foward.svg';
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from   { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 const Button = styled.button`
+  animation: ${fadeIn} 1s linear normal;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +40,8 @@ const Button = styled.button`
     outline:0;
   }
   ::after{
-    content: url(${arrowFoward}); width: 2.5em;
+    animation: ${props => props.disabled && rotate360} 2s linear infinite;
+    content: url(${props => props.icon}); width: 2.5em;
   }
 
   @media (min-width: 600px) {
