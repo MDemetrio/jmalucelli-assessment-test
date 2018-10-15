@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<styled.main>
+  <SineWave />
+  <styled.section>
+    <styled.img
+      alt="line-chart-icon"
+      aria-hidden={true}
+      src="line-chart.svg"
+    />
+    <styled.h1>
+      Cotação de seguros
+    </styled.h1>
+    <styled.h2>
+      Solução inovadora da líder de mercado
+    </styled.h2>
+    <styled.button
+      icon="arrow-foward.svg"
+      onClick={[Function]}
+    >
+      Iniciar
+    </styled.button>
+  </styled.section>
+</styled.main>
+`;
