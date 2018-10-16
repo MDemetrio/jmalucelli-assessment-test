@@ -1,22 +1,24 @@
 import React from 'react';
-import App from './App';
+import App from '../App';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
-import Landing from './Landing';
-import Quote from './Quote';
+import Landing from '../pages/Landing';
+import Quote from '../pages/Quote';
+import { getQuoteByCnpj } from '../services/quoteService';
 
 it('renders without crashing', () => {
-  shallow(<App />);
+  const wrapper = shallow(<App />);
+  expect(wrapper).toMatchSnapshot();
 });
 
-describe('Routing', () => {
+describe('App routing', () => {
   it('should render Landing component on "/" route', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     )
-    expect(wrapper.containsMatchingElement(<Landing />)).toBe(true);
+    expect(wrapper.containsMatchingElement(Landing)).toBe(true);
   })
 
   it('should render Quote component on "/quote" route', () => {
@@ -25,7 +27,7 @@ describe('Routing', () => {
         <App />
       </MemoryRouter>
     )
-    expect(wrapper.containsMatchingElement(<Quote />)).toBe(true);
+    expect(wrapper.containsMatchingElement(Quote)).toBe(true);
   })
 
   it('should render Landing component on undeclared route', () => {
@@ -34,7 +36,15 @@ describe('Routing', () => {
         <App />
       </MemoryRouter>
     )
-    expect(wrapper.containsMatchingElement(<Landing />)).toBe(true);
+    expect(wrapper.containsMatchingElement(Landing)).toBe(true);
+  })
+
+});
+
+describe('Services', () => {
+  it('should call fetch once with cnpj on getQuoteByCnpj', () => {
+    getQuoteByCnpj('123456');
+    expect(fetch).toHaveBeenCalled();
   })
 
 });

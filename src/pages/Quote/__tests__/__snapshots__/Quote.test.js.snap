@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Spring
+  config={
+    Object {
+      "friction": 60,
+      "tension": 120,
+    }
+  }
+  force={false}
+  from={
+    Object {
+      "minHeight": 100,
+      "opacity": 0,
+    }
+  }
+  immediate={false}
+  impl={[Function]}
+  inject={[Function]}
+  native={true}
+  reset={false}
+  to={
+    Object {
+      "minHeight": 10,
+      "opacity": 1,
+    }
+  }
+>
+  <Component />
+</Spring>
+`;

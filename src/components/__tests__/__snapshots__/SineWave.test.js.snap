@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  aria-hidden={true}
+  style={
+    Object {
+      "height": "32vh",
+      "left": 0,
+      "overflow": "hidden",
+      "position": "absolute",
+      "top": 0,
+      "width": "100vw",
+    }
+  }
+>
+  <svg
+    fill="none"
+    style={
+      Object {
+        "height": "32vh",
+        "width": "100vw",
+      }
+    }
+    vectorEffect="non-scaling-stroke"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</div>
+`;
