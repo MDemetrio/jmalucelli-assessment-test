@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import Landing from '../Landing';
 import Quote from '../../Quote';
-import App from '../../App';
+import App from '../../../App';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<Landing history={{}} />);

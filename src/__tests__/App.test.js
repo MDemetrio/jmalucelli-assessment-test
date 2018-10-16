@@ -2,8 +2,9 @@ import React from 'react';
 import App from '../App';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
-import Landing from '../Landing';
-import Quote from '../Quote';
+import Landing from '../pages/Landing';
+import Quote from '../pages/Quote';
+import { getQuoteByCnpj } from '../services/quoteService';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);
@@ -36,6 +37,14 @@ describe('App routing', () => {
       </MemoryRouter>
     )
     expect(wrapper.containsMatchingElement(Landing)).toBe(true);
+  })
+
+});
+
+describe('Services', () => {
+  it('should call fetch once with cnpj on getQuoteByCnpj', () => {
+    getQuoteByCnpj('123456');
+    expect(fetch).toHaveBeenCalled();
   })
 
 });

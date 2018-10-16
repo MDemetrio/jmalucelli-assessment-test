@@ -8,9 +8,16 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 
-const localStorageMock = {
+global.localStorage = {
     getItem: jest.fn(),
     setItem: jest.fn(),
     clear: jest.fn(),
 };
-global.localStorage = localStorageMock;
+
+window.alert = jest.fn();
+
+fetch = jest.fn().mockImplementation(() =>
+    Promise.resolve({
+        ok: true,
+        text: () => "Teste"
+    }));

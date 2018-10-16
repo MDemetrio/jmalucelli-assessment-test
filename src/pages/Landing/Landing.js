@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
 import PropTypes from 'prop-types';
-import lineChart from '../assets/line-chart.svg';
-import { Button } from '../components';
-import SineWave from '../components/SineWave';
-import arrowFoward from '../assets/arrow-foward.svg';
+import lineChart from '../../assets/line-chart.svg';
+import { Button } from '../../components';
+import SineWave from '../../components/SineWave';
+import arrowFoward from '../../assets/arrow-foward.svg';
 
 const Container = styled.main`
   background-image: linear-gradient(#8386f0, #a36cf4);

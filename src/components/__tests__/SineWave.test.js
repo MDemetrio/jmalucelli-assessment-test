@@ -9,7 +9,6 @@ it('renders without crashing', () => {
 
 it('calculate a random range correctly', () => {
     const wrapper = mount(<SineWave />);
-    console.log(wrapper.debug())
 
     expect(wrapper).toBeDefined();
 });

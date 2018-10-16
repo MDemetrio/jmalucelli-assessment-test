@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 import { Spring } from 'react-spring';
+import MaskedInput from 'react-text-mask'
 import NavBar from './NavBar';
 import StepWrapper from './StepWrapper';
-import { Button } from '../components';
-import arrowFowardWhite from '../assets/arrow-foward-white.svg';
-import checkCircle from '../assets/check-circle.svg';
-import spinner from '../assets/spinner.svg';
-import MaskedInput from 'react-text-mask'
-import { getQuoteByCnpj } from '../services/quoteService';
+import { Button } from '../../components';
+import arrowFowardWhite from '../../assets/arrow-foward-white.svg';
+import checkCircle from '../../assets/check-circle.svg';
+import spinner from '../../assets/spinner.svg';
+import { getQuoteByCnpj } from '../../services/quoteService';
 
 const Container = styled.main`
   height: 100vh;
@@ -97,7 +97,6 @@ export default class Quote extends Component {
             alert(t);
             this.setState({ isFetching: false })
           })
-          .catch(e => console.log(e));
       });
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { animated } from 'react-spring'
-import lineChart from '../assets/line-chart.svg';
+import lineChart from '../../assets/line-chart.svg';
 
 const Header = styled(animated.header)`
   background-image: linear-gradient(to left, #8386f0, #a36cf4);
