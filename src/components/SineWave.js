@@ -12,7 +12,7 @@ const createPathString = function (path) {
 
     var completedPath = '',
         comma = ',',
-        ampl = 50; // pixel range from 0, aka how deeply they bend
+        ampl = 25; // pixel range from 0, aka how deeply they bend
 
     var current = {
         x: ampl * Math.sin(path.counter / path.sin),
