@@ -1,6 +1,6 @@
 Esse projeto foi feito como um teste para a vaga de desenvolvedor frontend na JMalucelli, o objetivo era desenvolver as duas telas propostas, aonde na segunda tela é feita uma chamada de api.
 
-## O webapp está publicado [aqui](https://jmalucelli-assessment-test-oawxmdswyg.now.sh/).
+## O webapp está publicado [aqui](https://jmalucelli-assessment-test-yskrocrfvc.now.sh/).
 
 ![Screenshot 1](https://raw.githubusercontent.com/MDemetrio/jmalucelli-assessment-test/master/0.png)
 
