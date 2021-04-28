@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "08:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-spring
+    versions:
+    - 7.2.11
+    - 9.0.0
+    - 9.1.0
+    - 9.1.1
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: enzyme-to-json
+    versions:
+    - 3.6.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
